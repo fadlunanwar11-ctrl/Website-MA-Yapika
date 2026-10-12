@@ -22,7 +22,6 @@ return new class extends Migration {
             });
         }
 
-        Schema::dropIfExists('programs');
     }
 
     public function down(): void
