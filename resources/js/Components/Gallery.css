@@ -1,0 +1,103 @@
+
+.gallery-section {
+  padding: 80px 24px;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.gallery-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gallery-label {
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.gallery-heading h2 {
+  margin: 12px 0;
+  color: #0f172a;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+}
+
+.gallery-description {
+  color: #64748b;
+  font-size: 15px;
+}
+
+.gallery-slider {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 10px 0 30px;
+}
+
+.gallery-swiper {
+  width: 100%;
+  max-width: 340px;
+  height: 440px;
+  overflow: visible;
+}
+
+.gallery-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #e2e8f0;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-card-caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 45px 20px 24px;
+  color: white;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+.gallery-card-caption h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  color: white;
+  background: rgba(15, 23, 42, 0.65);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.gallery-swiper .swiper-button-next::after,
+.gallery-swiper .swiper-button-prev::after {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .gallery-section {
+    padding: 56px 16px;
+  }
+
+  .gallery-swiper {
+    max-width: 290px;
+    height: 380px;
+  }
+}
