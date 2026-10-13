@@ -89,7 +89,7 @@ export default function Home({
             <section className="hero-bg ">
                 <div className="mx-auto grid max-w-6xl items-center-safe  gap-10 px-4 py-14 md:grid-cols-2 md:py-20">
                     <img
-                        src="/images/logoMA.webp"
+                        src="/images/LogoMA.webp"
                         alt="logo MA Yapika"
                         className="melayang md:max-h-96 "
                     />
