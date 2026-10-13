@@ -71,7 +71,7 @@ export default function Program({ program }: { program: Item[] }) {
             
             <section className="bg-brand text-white">
                 <PageHero
-                    gambar="/images/gedungMA.png"
+                    gambar="/images/gedungMA.webp"
                     judul="PROGRAM DAN JURUSAN"
                     sub="Kelas Unggulan, Ekstra Kurikuler, dan Organisasi Madrasah Aliyah Yapika."
                 />

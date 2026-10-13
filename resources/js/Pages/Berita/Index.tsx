@@ -17,7 +17,7 @@ export default function Index({ berita }: Props) {
             <Head title="Berita" />
             <section className="bg-brand text-white">
                 <PageHero
-                    gambar="/images/gedungMA.png"
+                    gambar="/images/gedungMA.webp"
                     judul="BERITA MADRASAH"
                     sub="Berita Baru di Madrasah Aliyah Yapika."
                 />

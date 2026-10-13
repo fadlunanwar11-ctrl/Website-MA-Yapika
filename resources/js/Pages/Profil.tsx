@@ -4,6 +4,7 @@ import PublicLayout from "@/Layouts/PublicLayout";
 import SplitText from "@/Components/SplitText";
 import TextLipat from "@/Components/TextLipat";
 import TextType from "@/Components/TextType";
+import PageHero from "@/Components/PageHero";
 
 type Guru = { nama: string; jabatan: string | null; foto: string | null };
 type Props = {
@@ -125,37 +126,14 @@ export default function Profil({
         <PublicLayout>
             <Head title="Profil Madrasah" />
 
-            <section className="relative  isolate overflow-hidden bg-[url(/images/gedungMA.png)] bg-cover bg-center text-white">
-                <div className="absolute inset-0 -z-10 bg-black/60" />
-                <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
-                    <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                        <JudulHero>PROFIL MADRASAH ALIYAH</JudulHero>
-                    </h1>
-                    <TextType
-                            text={[
-                                "Mengenal sejarah, visi, misi, dan para pendidik",
-                                "Madrasah Aliyah Yapika",
-                            ]}
-                            typingSpeed={75}
-                            pauseDuration={1500}
-                            showCursor
-                            cursorCharacter="_"
-                            // texts={[
-                            //     "Welcome to React Bits! Good to see you!",
-                            //     "Build some amazing experiences!",
-                            // ]}
-                            deletingSpeed={50}
-                            variableSpeed={{
-                                min: 60,
-                                max: 120,
-                            }}
-                            cursorBlinkDuration={0.5}
-                            className="mt-3 max-w-2xl text-lg text-slate-100 font-bold"
-                        />
-                    <p className="">
-                        
-                    </p>
-                </div>
+            <section>
+                <PageHero
+                                    gambar="/images/gedungMA.webp"
+                                    judul="PROFILE MADRASAH ALIYAH"
+                                    sub="Mengenal tentang Madrasah Aliyah Yapika."
+                                />
+
+                
             </section>
 
             <nav

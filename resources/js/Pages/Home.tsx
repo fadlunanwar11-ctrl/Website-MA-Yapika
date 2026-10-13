@@ -89,18 +89,16 @@ export default function Home({
             <section className="hero-bg ">
                 <div className="mx-auto grid max-w-6xl items-center-safe  gap-10 px-4 py-14 md:grid-cols-2 md:py-20">
                     <img
-                        src="/images/logo-yapika.png"
+                        src="/images/logoMA.webp"
                         alt="logo MA Yapika"
                         className="melayang md:max-h-96 "
                     />
                     <div className="flex flex-col gap-5  ">
-                        <h1 className=" text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl ">
+                        <h1 className="text-center text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl ">
                             MADRASAH ALIYAH YAPIKA
                         </h1>
 
-                        <p className="text-lg font-bold">
-                            Yayasan Pendidikan Al-Istiqomah Karya Guna
-                            <br />
+                        <p className="text-lg font-bold text-center">
                             Tanjungsari, Petanahan, Kebumen, Jawa Tengah
                         </p>
                         <div className="flex flex-wrap gap-3">
@@ -110,12 +108,12 @@ export default function Home({
                             >
                                 Daftar PPDB
                             </Link> */}
-                            <Link
+                            {/* <Link
                                 href="/profil"
                                 className="rounded-md border-2 border-link px-6 py-3 font-bold text-link hover:bg-link hover:text-white hover:border-2 hover:border-white"
                             >
                                 Profil Madrasah
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>
@@ -157,7 +155,7 @@ export default function Home({
                         <div className="relative -mt-20 flex justify-center sm:-mt-24 md:-mt-28 md:justify-start">
                             <img
                                 className="h-36 w-36 rounded-full border-4 border-link object-cover sm:h-44 sm:w-44 md:h-52 md:w-52"
-                                src="/images/pakYai.jpeg"
+                                src="/images/pakYai.webp"
                                 alt="Kepala Madrasah"
                                 loading="lazy"
                                 decoding="async"
@@ -177,11 +175,24 @@ export default function Home({
                             </h2>
 
                             <p className="text-justify text-sm leading-7 sm:text-base">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quae dolores deserunt ea
-                                doloremque natus error, rerum quas odio quaerat
-                                nam ex commodi hic, suscipit in a veritatis
-                                pariatur minus consequuntur!
+                                Assalamu’alaikum Warahmatullahi Wabarakatuh
+                                Alhamdulillahi robbil 'alamin, wasshalatu
+                                wasshalamu 'ala asyrofil anbiya'i wal mursalin,
+                                wa 'ala alihi wa shohbihi ajma'in. Selamat
+                                datang di website resmi MA YAPIKA. Puji syukur
+                                kehadirat Allah SWT. Platform digital ini kami
+                                hadirkan sebagai sarana silaturahmi,
+                                transparansi, dan pelayanan informasi bagi
+                                seluruh civitas akademika serta masyarakat. MA
+                                YAPIKA berkomitmen mencetak generasi mutaqaddim
+                                (maju) yang berlandaskan imtaq dan
+                                iptek—menyeimbangkan kedalaman ilmu agama,
+                                keluhuran akhlakul karimah, serta kesiapan
+                                menghadapi tantangan zaman. Mari bersama
+                                membimbing putra-putri kita menjadi generasi
+                                rabbani yang berilmu, beramal, dan berakhlak
+                                mulia. Wassalamu’alaikum Warahmatullahi
+                                Wabarakatuh
                             </p>
                         </div>
 

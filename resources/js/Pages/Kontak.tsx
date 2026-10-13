@@ -43,7 +43,7 @@ export default function KontakPage() {
 
             <section className="bg-brand text-white">
                 <PageHero
-                    gambar="/images/gedungMA.png"
+                    gambar="/images/gedungMA.webp"
                     judul="KONTAK"
                     sub="Hubungi Madrasah Aliyah Yapika."
                 />

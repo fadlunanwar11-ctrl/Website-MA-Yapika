@@ -30,7 +30,7 @@ export default function Index({ album }: { album: Album[] }) {
 
             <section className="bg-brand text-white">
                 <PageHero
-                    gambar="/images/gedungMA.png"
+                    gambar="/images/gedungMA.webp"
                     judul="GALERI MADRASAH"
                     sub="Galeri kegatan Madrasah Aliyah Yapika."
                 />
