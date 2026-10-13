@@ -203,7 +203,7 @@ export default function Home({
                         <div className="relative -mt-20 flex justify-center sm:-mt-24 md:-mt-28 md:justify-start">
                             <img
                                 className="h-36 w-36 rounded-full border-4 border-link object-cover sm:h-44 sm:w-44 md:h-52 md:w-52"
-                                src="/images/PakYai.jpeg"
+                                src="/images/pakYai.jpeg"
                                 alt="Kepala Madrasah"
                                 data-aos="fade-up "
                             />
@@ -254,7 +254,7 @@ export default function Home({
                         </span>
 
                         <img
-                            src="/images/PakYai.png"
+                            src="/images/pakYai.jpeg"
                             alt="Kepala madrasah"
                             className="mx-auto aspect-square w-48 rounded-full border-4 border-link object-cover shadow-xl md:w-64"
                         />
