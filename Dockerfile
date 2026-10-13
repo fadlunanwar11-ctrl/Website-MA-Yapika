@@ -25,7 +25,8 @@ WORKDIR /var/www
 COPY . .
 
 # Instal dependensi PHP & JS
-RUN composer install --no-dev --optimize-autoloader
+RUN cp .env.example .env 2>/dev/null || true
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 RUN npm install && npm run build
 
 ENV PORT=10000
