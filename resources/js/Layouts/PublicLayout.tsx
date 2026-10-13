@@ -45,7 +45,7 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                 <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
                     <Link href="/" className="flex items-center gap-3">
                         <img
-                            src="/images/logo-yapika.png"
+                            src="/images/LogoMA.webp"
                             alt="Logo YAPIKA"
                             className="h-11 w-auto"
                         />
