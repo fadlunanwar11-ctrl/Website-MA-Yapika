@@ -1,6 +1,6 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
-# Instal dependensi sistem & ekstensi PHP yang dibutuhkan Laravel & PostgreSQL
+# Instal dependensi sistem & ekstensi PHP
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -9,9 +9,11 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libpq-dev \
     zip \
-    unzip \
-    nodejs \
-    npm
+    unzip
+
+# Pasang Node.js 20.x LTS dari NodeSource
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
 
 RUN docker-php-ext-install pdo pdo_pgsql mbstring exif pcntl bcmath gd
 
@@ -26,6 +28,7 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
-# Expose port & jalankan server bawaan
-EXPOSE 8000
-CMD php artisan serve --host=0.0.0.0 --port=8000
+ENV PORT=10000
+EXPOSE ${PORT}
+
+CMD php artisan serve --host=0.0.0.0 --port=${PORT}
