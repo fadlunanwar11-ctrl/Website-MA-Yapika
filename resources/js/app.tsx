@@ -1,4 +1,3 @@
-import Gallery from "./Components/Gallery";
 import "../css/app.css";
 
 import { createInertiaApp } from "@inertiajs/react";
@@ -23,11 +22,3 @@ createInertiaApp({
         color: "#4B5563",
     },
 });
-
-export default function App() {
-    return (
-        <main>
-            <Gallery />
-        </main>
-    );
-}

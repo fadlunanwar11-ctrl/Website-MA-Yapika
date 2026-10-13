@@ -1,17 +1,11 @@
 import { Head, Link } from "@inertiajs/react";
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import PublicLayout from "@/Layouts/PublicLayout";
-import TextType from "@/Components/TextType";
-import SplitText from "./../Components/SplitText";
 import Reveal from "@/Components/Reveal";
-import DriftWall from "@/Components/DriftWall";
 import { KELOMPOK_PROGRAM } from "@/lib/kelompokProgram";
 import MarqueeCards from "@/Components/MarqueeCards";
-import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
-import Carousel from "@/Components/Carousel";
-// ..
-AOS.init();
+
+const DriftWall = lazy(() => import("@/Components/DriftWall"));
 
 const MIN_MARQUEE = 3; // kelompok dengan program lebih sedikit tampil sebagai kartu diam
 type BeritaItem = {
@@ -53,30 +47,10 @@ function useLayar() {
     return s;
 }
 
-function Header({ children }: { children: string }) {
-    return (
-        <SplitText
-            text={children}
-            className=" font-bold leading-tight"
-            delay={50}
-            duration={1.25}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="left"
-            onLetterAnimationComplete={() => {}}
-        />
-    );
-}
 function Judul({ children }: { children: string }) {
     return (
         <Reveal>
-            <h2 className="text-2xl font-bold md:text-3xl" data-aos="fade-up">
-                {children}
-            </h2>
+            <h2 className="text-2xl font-bold md:text-3xl">{children}</h2>
         </Reveal>
     );
 }
@@ -121,30 +95,14 @@ export default function Home({
                     />
                     <div className="flex flex-col gap-5  ">
                         <h1 className=" text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl ">
-                            <Header>MADRASAH ALIYAH YAPIKA</Header>
+                            MADRASAH ALIYAH YAPIKA
                         </h1>
 
-                        <TextType
-                            text={[
-                                "Yayasan Pendidikan Al-Istiqomah Karya Guna",
-                                "Tanjungsari, Petanahan, Kebumen, Jawa Tengah",
-                            ]}
-                            typingSpeed={75}
-                            pauseDuration={1500}
-                            showCursor
-                            cursorCharacter="_"
-                            // texts={[
-                            //     "Welcome to React Bits! Good to see you!",
-                            //     "Build some amazing experiences!",
-                            // ]}
-                            deletingSpeed={50}
-                            variableSpeed={{
-                                min: 60,
-                                max: 120,
-                            }}
-                            cursorBlinkDuration={0.5}
-                            className="text-lg font-bold"
-                        />
+                        <p className="text-lg font-bold">
+                            Yayasan Pendidikan Al-Istiqomah Karya Guna
+                            <br />
+                            Tanjungsari, Petanahan, Kebumen, Jawa Tengah
+                        </p>
                         <div className="flex flex-wrap gap-3">
                             {/* <Link
                                 href="/ppdb"
@@ -193,11 +151,7 @@ export default function Home({
                     ))}
                 </div>
             </section> */}
-            <section
-                className="mt-36 "
-                data-aos="fade-up"
-                data-aos-duration="3000"
-            >
+            <section className="mt-36 ">
                 <Reveal>
                     <div className="relative mx-4 my-16 rounded-xl border border-link bg-card px-5 pb-6 pt-8 shadow-lg sm:mx-8 sm:px-8 md:mx-12 md:px-8 lg:mx-24">
                         <div className="relative -mt-20 flex justify-center sm:-mt-24 md:-mt-28 md:justify-start">
@@ -205,7 +159,8 @@ export default function Home({
                                 className="h-36 w-36 rounded-full border-4 border-link object-cover sm:h-44 sm:w-44 md:h-52 md:w-52"
                                 src="/images/pakYai.jpeg"
                                 alt="Kepala Madrasah"
-                                data-aos="fade-up "
+                                loading="lazy"
+                                decoding="async"
                             />
 
                             <span
@@ -302,11 +257,7 @@ export default function Home({
                     <p className="mx-auto mt-6 max-w-6xl px-4">Belum diisi.</p>
                 )}
 
-                <div
-                    className="mt-8 space-y-10"
-                    data-aos="fade-up"
-                    data-aos-duration="2000"
-                >
+                <div className="mt-8 space-y-10">
                     {kelompokProgram.map((k, i) => (
                         <div key={k.kunci}>
                             <div className="mx-auto mb-4 flex max-w-6xl items-baseline justify-between gap-4 px-4">
@@ -364,9 +315,9 @@ export default function Home({
                     </Link>
                 </div>
                 {berita.length === 0 && <p className="">Belum ada berita.</p>}
-                <Carousel slidesPerView={3} direction="right">
-                    {berita.map((b, i) => (
-                        <Reveal key={b.slug} delay={i * 100} className="h-full">
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {berita.map((b) => (
+                        <Reveal key={b.slug} className="h-full">
                             <Link
                                 href={`/berita/${b.slug}`}
                                 className="kartu flex h-90 flex-col gap-3 overflow-hidden p-4"
@@ -376,6 +327,8 @@ export default function Home({
                                         src={`/storage/${b.gambar}`}
                                         alt={b.judul}
                                         className="h-36 w-full shrink-0 rounded object-cover"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 ) : (
                                     <div className="h-36 w-full shrink-0 rounded bg-alt" />
@@ -397,8 +350,7 @@ export default function Home({
                             </Link>
                         </Reveal>
                     ))}
-                </Carousel>
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+                </div>
             </section>
 
             <section className="bg-card">
@@ -421,31 +373,37 @@ export default function Home({
                 )}
 
                 {pakaiDinding && (
-                    <div className="relative mt-8 h-105 overflow-hidden md:h-130">
-                        <DriftWall
-                            items={itemsGaleri}
-                            columns={kolom}
-                            tileWidth={lebar}
-                            tileHeight={Math.round(lebar * 0.66)}
-                            gap={18}
-                            tilt={16}
-                            turn={-14}
-                            perspective={1200}
-                            depth={120}
-                            speed={42}
-                            direction="up"
-                            variance={0.45}
-                            parallax={0.6}
-                            lift={64}
-                            fade={0.6}
-                            dim={0.55}
-                            overlayColor="#0f172a"
-                            radius={14}
-                            roll={0}
-                            pauseOnHover
-                            grayscale={false}
-                        />
-                    </div>
+                    <Suspense
+                        fallback={
+                            <div className="relative mt-8 h-105 md:h-130" />
+                        }
+                    >
+                        <div className="relative mt-8 h-105 overflow-hidden md:h-130">
+                            <DriftWall
+                                items={itemsGaleri}
+                                columns={kolom}
+                                tileWidth={lebar}
+                                tileHeight={Math.round(lebar * 0.66)}
+                                gap={18}
+                                tilt={16}
+                                turn={-14}
+                                perspective={1200}
+                                depth={120}
+                                speed={42}
+                                direction="up"
+                                variance={0.45}
+                                parallax={0.6}
+                                lift={64}
+                                fade={0.6}
+                                dim={0.55}
+                                overlayColor="#0f172a"
+                                radius={14}
+                                roll={0}
+                                pauseOnHover
+                                grayscale={false}
+                            />
+                        </div>
+                    </Suspense>
                 )}
 
                 {!pakaiDinding && itemsGaleri.length > 0 && (
@@ -460,6 +418,8 @@ export default function Home({
                                     src={f.image}
                                     alt={f.title}
                                     className="h-40 w-full object-cover"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </Link>
                         ))}

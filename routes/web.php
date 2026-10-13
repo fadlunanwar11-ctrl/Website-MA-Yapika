@@ -31,9 +31,10 @@ Route::get('/', function () {
         'terbit_pada' => $b->terbit_pada->translatedFormat('d F Y'),
     ]);
 
-    $program = Program::orderBy('urutan')->orderBy('nama')->get(['nama', 'kategori', 'deskripsi', 'gambar']);
+    $programs = Program::orderBy('urutan')->orderBy('nama')
+        ->get(['nama', 'kategori', 'deskripsi', 'gambar', 'poin']);
     $galeri = Galeri::whereHas('album', fn($q) => $q->terbit())->latest()->take(12)->get(['gambar', 'keterangan']);
-    $unggulan = Program::pluck('poin')
+    $unggulan = $programs->pluck('poin')
         ->flatMap(fn($p) => preg_split('/\R/', (string) $p))
         ->map(fn($x) => trim($x))
         ->filter()
@@ -41,7 +42,17 @@ Route::get('/', function () {
         ->values()
         ->take(16);
 
-    return Inertia::render('Home', ['berita' => $berita, 'program' => $program, 'galeri' => $galeri, 'unggulan' => $unggulan]);
+    return Inertia::render('Home', [
+        'berita' => $berita,
+        'program' => $programs->map(fn ($program) => $program->only([
+            'nama',
+            'kategori',
+            'deskripsi',
+            'gambar',
+        ])),
+        'galeri' => $galeri,
+        'unggulan' => $unggulan,
+    ]);
 });
 
 Route::get('/ppdb/cek', [PpdbController::class, 'cekForm']);
