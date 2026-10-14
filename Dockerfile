@@ -35,7 +35,13 @@ COPY . .
 COPY --from=frontend /var/www/public/build ./public/build
 
 # Instal dependensi PHP (Composer)
+
+# Instal dependensi PHP (Composer)
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+# Buat symbolic link storage Laravel
+RUN php artisan storage:link
+
 
 # Atur permission untuk folder Storage dan Cache Laravel
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \

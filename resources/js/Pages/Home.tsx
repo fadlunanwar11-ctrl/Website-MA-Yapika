@@ -174,7 +174,7 @@ export default function Home({
                                 Sambutan Kepala Madrasah
                             </h2>
 
-                            <p className="text-justify text-sm leading-7 sm:text-base">
+                            <p className="text-justify  text-base/6 sm:text-base tracking-tight">
                                 Assalamu’alaikum Warahmatullahi Wabarakatuh
                                 Alhamdulillahi robbil 'alamin, wasshalatu
                                 wasshalamu 'ala asyrofil anbiya'i wal mursalin,
