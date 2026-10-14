@@ -174,7 +174,8 @@ export default function Home({
                                 Sambutan Kepala Madrasah
                             </h2>
 
-                            <p className="text-justify  text-base/6 sm:text-base tracking-tight">
+                            <p className="text-justify 
+                             text-base/6 sm:text-base tracking-tight">
                                 Assalamu’alaikum Warahmatullahi Wabarakatuh
                                 Alhamdulillahi robbil 'alamin, wasshalatu
                                 wasshalamu 'ala asyrofil anbiya'i wal mursalin,
@@ -440,7 +441,7 @@ export default function Home({
                 <div className="" />
             </section>
 
-            <section className="bg-brand text-white">
+            {/* <section className="bg-brand text-white">
                 <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-12 text-center">
                     <p className="text-2xl font-bold">
                         Penerimaan Peserta Didik Baru 2026/2027
@@ -452,7 +453,7 @@ export default function Home({
                         Daftar Sekarang
                     </Link>
                 </div>
-            </section>
+            </section> */}
         </PublicLayout>
     );
 }

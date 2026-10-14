@@ -98,12 +98,12 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                                 )}
                             </svg>
                         </button>
-                        <Link
+                        {/* <Link
                             href="/ppdb"
                             className="rounded-md bg-accent px-4 py-2.5 text-sm font-bold border-2 border-link"
                         >
                             PPDB
-                        </Link>
+                        </Link> */}
                         <button
                             aria-label="Buka menu"
                             onClick={() => setOpen(!open)}
@@ -162,13 +162,13 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                             Kontak lengkap dan peta
                         </Link>
                         <br />
-                        <Link href="/ppdb/cek" className="underline">
+                        {/* <Link href="/ppdb/cek" className="underline">
                             Cek status PPDB
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
                 <div className="mx-auto max-w-6xl px-4 pb-6 text-xs">
-                    &copy; {new Date().getFullYear()} MA Yapika
+                    &copy; {new Date().getFullYear()} fadlun_anwar
                 </div>
             </footer>
         </div>
