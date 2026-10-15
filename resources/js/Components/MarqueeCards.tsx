@@ -2,11 +2,10 @@ import { Link } from "@inertiajs/react";
 import { CSSProperties } from "react";
 import { useState } from "react";
 
-
 export type MarqueeItem = {
     nama: string;
-    deskripsi: string | null;
-    gambar: string | null;
+    deskripsi?: string | null; // Tambahkan '?' agar opsional / bisa undefined
+    gambar?: string | null;
 };
 
 export default function MarqueeCards({
@@ -17,6 +16,7 @@ export default function MarqueeCards({
     items: MarqueeItem[];
     durasi?: number;
     reverse: boolean;
+    // Tambahkan '?' agar opsional / bisa undefined
 }) {
     const [paused, setPaused] = useState(false);
     if (items.length === 0) return null;

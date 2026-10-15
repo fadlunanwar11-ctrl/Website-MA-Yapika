@@ -104,9 +104,26 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    --page: #f6f7f6;
+    --card: #ffffff;
+    --alt: #e8f1f7;
+    --ink: #12222e;
+    --muted: #4a5a66;
+    --line: #c4d2dc;
+    --link: #0a638f;
+    --danger: #c8161d;
 }
 
 .dark {
+    --page: #08121b;
+    --card: #14283a;
+    --alt: #0e1f2e;
+    --ink: #e8f1f7;
+    --muted: #a9bccb;
+    --line: #3a5b77;
+    --link: #5cb8ea;
+    --danger: #ff8a8f;
+    color-scheme: dark;
     --page: #0a1520;
     --card: #112230;
     --alt: #0e1c29;
@@ -153,13 +170,39 @@
     border-radius: 0.75rem;
     border: 1px solid var(--line);
     background: var(--card);
+    box-shadow: 0 1px 2px rgb(15 34 46 / 0.06);
     transition:
         transform 0.3s,
-        box-shadow 0.3s;
+        box-shadow 0.3s,
+        border-color 0.3s;
+}
+.dark .kartu {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
 }
 .kartu:hover {
     transform: translateY(-4px);
+    border-color: var(--link);
     box-shadow: 0 10px 25px rgb(0 0 0 / 0.14);
+}
+.dark .kartu:hover {
+    box-shadow:
+        0 10px 25px rgb(0 0 0 / 0.5),
+        inset 0 1px 0 rgb(255 255 255 / 0.05);
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+    background: var(--card);
+    color: var(--ink);
+    border-color: var(--line);
+}
+.dark ::placeholder {
+    color: var(--muted);
+    opacity: 0.85;
+}
+.dark .kartu img {
+    filter: brightness(0.92);
 }
 
 .hero-bg {
@@ -244,15 +287,29 @@
         display: none;
     }
 }
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+    html {
+        scroll-behavior: auto;
+    }
 }
 @keyframes naik {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
-.hero-naik { animation: naik 0.7s ease-out both; }
+.hero-naik {
+    animation: naik 0.7s ease-out both;
+}
 @media (prefers-reduced-motion: reduce) {
-  .hero-naik { animation: none; }
+    .hero-naik {
+        animation: none;
+    }
 }
