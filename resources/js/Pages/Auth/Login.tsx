@@ -1,11 +1,12 @@
-import Checkbox from '@/Components/Checkbox';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import Checkbox from "@/Components/Checkbox";
+import InputError from "@/Components/InputError";
+import InputLabel from "@/Components/InputLabel";
+import PrimaryButton from "@/Components/PrimaryButton";
+import TextInput from "@/Components/TextInput";
+import GuestLayout from "@/Layouts/GuestLayout";
+import { Head, Link, useForm } from "@inertiajs/react";
+import PasswordInput from "@/Components/PasswordInput";
+import { FormEventHandler } from "react";
 
 export default function Login({
     status,
@@ -15,16 +16,16 @@ export default function Login({
     canResetPassword: boolean;
 }) {
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
+        email: "",
+        password: "",
         remember: false as boolean,
     });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('login'), {
-            onFinish: () => reset('password'),
+        post(route("login"), {
+            onFinish: () => reset("password"),
         });
     };
 
@@ -38,7 +39,9 @@ export default function Login({
                 </div>
             )}
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit}
+            className=""
+            >
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
@@ -47,29 +50,30 @@ export default function Login({
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full p-1"
                         autoComplete="username"
                         isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
+                        placeholder="Masukkan Email"
+                        onChange={(e) => setData("email", e.target.value)}
                     />
 
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    
 
-                    <TextInput
+                    <PasswordInput
+                        label="Kata Sandi"
                         id="password"
-                        type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        onChange={(e) => setData('password', e.target.value)}
+                        onChange={(e) => setData("password", e.target.value)}
+                        error={errors.password}
+                        placeholder="Masukkan kata sandi"
                     />
 
-                    <InputError message={errors.password} className="mt-2" />
+                    
                 </div>
 
                 <div className="mt-4 block">
@@ -77,9 +81,10 @@ export default function Login({
                         <Checkbox
                             name="remember"
                             checked={data.remember}
+                            className="cursor-pointer"
                             onChange={(e) =>
                                 setData(
-                                    'remember',
+                                    "remember",
                                     (e.target.checked || false) as false,
                                 )
                             }
@@ -93,14 +98,17 @@ export default function Login({
                 <div className="mt-4 flex items-center justify-end">
                     {canResetPassword && (
                         <Link
-                            href={route('password.request')}
+                            href={route("password.request")}
                             className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                             Forgot your password?
                         </Link>
                     )}
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <PrimaryButton
+                        className="ms-4 cursor-pointer"
+                        disabled={processing}
+                    >
                         Log in
                     </PrimaryButton>
                 </div>

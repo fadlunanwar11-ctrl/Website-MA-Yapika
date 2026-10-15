@@ -122,7 +122,7 @@ export default function Program({ program }: { program: Item[] }) {
                 );
             })}
 
-            <section className="bg-brand text-white">
+            {/* <section className="bg-brand text-white">
                 <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-12 text-center">
                     <p className="text-2xl font-bold">
                         Siap bergabung dengan MA Yapika?
@@ -134,7 +134,7 @@ export default function Program({ program }: { program: Item[] }) {
                         Daftar PPDB
                     </Link>
                 </div>
-            </section>
+            </section> */}
         </PublicLayout>
     );
 }
