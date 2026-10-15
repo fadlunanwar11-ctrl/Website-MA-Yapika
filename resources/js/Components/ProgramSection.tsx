@@ -73,7 +73,7 @@ export default function ProgramSection({
 
             {/* Jika Data Program Kosong */}
             {kelompokProgram.length === 0 && (
-                <div className="mx-auto mt-10 max-w-6xl rounded-2xl border border-dashed border-line p-8 text-center text-muted">
+                <div className="mx-auto mt-10 max-w-6xl rounded-2xl border border-dashed border-line p-8 text-center ">
                     <p className="text-sm">
                         Belum ada data program yang ditampilkan.
                     </p>
@@ -91,7 +91,7 @@ export default function ProgramSection({
                                     {k.judul}
                                 </h3>
                                 {k.ket && (
-                                    <p className="mt-1 text-sm text-muted">
+                                    <p className="mt-1 text-sm ">
                                         {k.ket}
                                     </p>
                                 )}
@@ -134,7 +134,7 @@ export default function ProgramSection({
                                                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                                     />
                                                 ) : (
-                                                    <div className="flex h-full w-full items-center justify-center bg-alt text-muted">
+                                                    <div className="flex h-full w-full items-center justify-center bg-alt ">
                                                         <svg
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             className="h-8 w-8 opacity-40"
@@ -161,7 +161,7 @@ export default function ProgramSection({
                                                     {p.nama}
                                                 </strong>
                                                 {p.deskripsi && (
-                                                    <p className="line-clamp-2 text-xs/relaxed text-muted">
+                                                    <p className="line-clamp-2 text-xs/relaxed text">
                                                         {p.deskripsi}
                                                     </p>
                                                 )}

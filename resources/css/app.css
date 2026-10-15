@@ -166,29 +166,10 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
-.kartu {
-    border-radius: 0.75rem;
-    border: 1px solid var(--line);
-    background: var(--card);
-    box-shadow: 0 1px 2px rgb(15 34 46 / 0.06);
-    transition:
-        transform 0.3s,
-        box-shadow 0.3s,
-        border-color 0.3s;
-}
-.dark .kartu {
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
-}
-.kartu:hover {
-    transform: translateY(-4px);
-    border-color: var(--link);
-    box-shadow: 0 10px 25px rgb(0 0 0 / 0.14);
-}
-.dark .kartu:hover {
-    box-shadow:
-        0 10px 25px rgb(0 0 0 / 0.5),
-        inset 0 1px 0 rgb(255 255 255 / 0.05);
-}
+
+
+
+
 
 .dark input,
 .dark select,
@@ -205,24 +186,7 @@
     filter: brightness(0.92);
 }
 
-.hero-bg {
-    background:
-        radial-gradient(
-            60rem 30rem at 80% -10%,
-            rgb(11 111 164 / 0.18),
-            transparent
-        ),
-        var(--alt);
-}
-.dark .hero-bg {
-    background:
-        radial-gradient(
-            60rem 30rem at 80% -10%,
-            rgb(11 111 164 / 0.4),
-            transparent
-        ),
-        var(--alt);
-}
+
 
 @layer base {
     * {
@@ -244,22 +208,10 @@
         transform: translateY(-12px);
     }
 }
-.melayang {
-    animation: melayang 6s ease-in-out infinite;
-}
 
-.marquee {
-    overflow: hidden;
-    width: 100%;
-}
-.marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee-scroll var(--durasi, 60s) linear infinite;
-    will-change: transform;
-    animation-direction: var(--arah, normal);
-    animation-play-state: paused;
-}
+
+
+
 @keyframes marquee-scroll {
     to {
         transform: translateX(-50%);
@@ -312,4 +264,66 @@ html {
     .hero-naik {
         animation: none;
     }
+}
+@layer components {
+  .kartu {
+    border-radius: 0.75rem;
+    border: 1px solid var(--line);
+    background: var(--card);
+    box-shadow: 0 1px 2px rgb(15 34 46 / 0.06);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        border-color 0.3s;
+}
+  .dark .kartu {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+}
+  .kartu:hover {
+    transform: translateY(-4px);
+    border-color: var(--link);
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.14);
+}
+  .dark .kartu:hover {
+    box-shadow:
+        0 10px 25px rgb(0 0 0 / 0.5),
+        inset 0 1px 0 rgb(255 255 255 / 0.05);
+}
+  .hero-bg {
+    background:
+        radial-gradient(
+            60rem 30rem at 80% -10%,
+            rgb(11 111 164 / 0.18),
+            transparent
+        ),
+        var(--alt);
+}
+.dark .hero-bg {
+    background:
+        radial-gradient(
+            60rem 30rem at 80% -10%,
+            rgb(11 111 164 / 0.4),
+            transparent
+        ),
+        var(--alt);
+}
+
+  .melayang {
+    animation: melayang 6s ease-in-out infinite;
+}
+.marquee {
+    overflow: hidden;
+    width: 100%;
+}
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll var(--durasi, 60s) linear infinite;
+    will-change: transform;
+    animation-direction: var(--arah, normal);
+    animation-play-state: paused;
+}
+}
+@layer base {
+  .dark input, .dark select, .dark textarea { /* ... */ }
 }

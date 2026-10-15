@@ -28,21 +28,30 @@ type GaleriItem = {
     gambar: string;
     keterangan: string | null;
 };
+function ukurLayar() {
+    const ada = typeof window !== "undefined";
+    const w = ada ? window.innerWidth : 1280;
+    return {
+        kolom: w < 640 ? 2 : w < 1024 ? 3 : 5,
+        lebar: w < 640 ? 150 : 200,
+        kurangiGerak:
+            ada &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    };
+}
 
 function useLayar() {
-    const [s, setS] = useState({ kolom: 5, lebar: 200, kurangiGerak: false });
+    const [s, setS] = useState(ukurLayar);
     useEffect(() => {
-        const hitung = () => {
-            const w = window.innerWidth;
-            setS({
-                kolom: w < 640 ? 2 : w < 1024 ? 3 : 5,
-                lebar: w < 640 ? 150 : 200,
-                kurangiGerak: window.matchMedia(
-                    "(prefers-reduced-motion: reduce)",
-                ).matches,
+        const hitung = () =>
+            setS((p) => {
+                const n = ukurLayar();
+                return n.kolom === p.kolom &&
+                    n.lebar === p.lebar &&
+                    n.kurangiGerak === p.kurangiGerak
+                    ? p
+                    : n;
             });
-        };
-        hitung();
         window.addEventListener("resize", hitung);
         return () => window.removeEventListener("resize", hitung);
     }, []);
@@ -234,7 +243,10 @@ export default function Home({
                     <h2 className="text-2xl font-bold md:text-3xl">
                         Galeri Kegiatan
                     </h2>
-                    <Link href="/galeri" className="py-2 text-link hover:underline">
+                    <Link
+                        href="/galeri"
+                        className="py-2 text-link hover:underline"
+                    >
                         Lihat semua
                     </Link>
                 </div>
@@ -247,7 +259,9 @@ export default function Home({
 
                 {pakaiDinding && (
                     <Suspense
-                        fallback={<div className="relative mt-8 h-105 md:h-130" />}
+                        fallback={
+                            <div className="relative mt-8 h-105 md:h-130" />
+                        }
                     >
                         <div className="relative mt-8 h-105 overflow-hidden md:h-130">
                             <DriftWall
